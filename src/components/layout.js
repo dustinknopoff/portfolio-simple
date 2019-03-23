@@ -57,13 +57,11 @@ export const Grid = styled.div`
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: 3fr repeat(12, 1fr) 3fr;
-  grid-template-rows: 0.25fr 1fr 0.25fr;
 `
 
 export const Main = styled.main`
-  grid-column: 7 / span 7;
   grid-row: 2;
-  text-align: right;
+  grid-column: 2 / span 12;
 `
 
 export const Footer = styled.footer`

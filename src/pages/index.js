@@ -1,21 +1,43 @@
 import React from "react"
-import { Link } from "gatsby"
-
+import PostExcerpt from "../components/postExcerpt"
 import Layout from "../components/layout"
-import Image from "../components/image"
+import { StaticQuery, graphql } from "gatsby"
 import SEO from "../components/seo"
+import styled from "styled-components"
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`programmer`, `designer`, `explorer`]} />
-    <h3>Recent Posts</h3>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+  <StaticQuery
+    query={graphql`
+      query LatestThreeQuery {
+        allMarkdownRemark(
+          limit: 3
+          sort: { order: DESC, fields: [fields___modifiedTime] }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                title
+              }
+              excerpt
+              fields {
+                slug
+                modifiedTime
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => (
+      <Layout>
+        <SEO title="Home" keywords={[`programmer`, `designer`, `explorer`]} />
+        <h2>Recent Posts</h2>
+        {data.allMarkdownRemark.edges.map(({ node }) => {
+          return <PostExcerpt node={node} isExcerpt={true} />
+        })}
+      </Layout>
+    )}
+  />
 )
 
 export default IndexPage

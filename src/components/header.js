@@ -9,15 +9,7 @@ const Header = ({ siteTitle, description, pages }) => (
   <Head>
     <Title>
       <h1>
-        <Link
-          to="/"
-          style={{
-            color: `black`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
+        <Link to="/">{siteTitle}</Link>
       </h1>
       <p style={{ width: `75%` }}>{description}</p>
     </Title>
@@ -37,10 +29,14 @@ const Header = ({ siteTitle, description, pages }) => (
       <LinksList>
         {pages.map((x, index) => {
           if (index != pages.length - 1) {
-            return <ListElem key={index}>{x}</ListElem>
+            return (
+              <ListElem as={Link} to={x.toLowerCase()} key={index}>
+                {x}
+              </ListElem>
+            )
           } else {
             return (
-              <ListElem end key={index}>
+              <ListElem as={Link} to={x.toLowerCase()} end key={index}>
                 {x}
               </ListElem>
             )
@@ -96,6 +92,11 @@ export const LinksList = styled.ul`
 export const ListElem = styled.li`
   border-right: 1px solid black;
   padding: 0 5px 0 5px;
+  font-style: italic;
+
+  :hover {
+    font-style: normal;
+  }
 
   ${props =>
     props.end &&

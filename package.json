@@ -10,6 +10,7 @@
     "gatsby": "^2.2.5",
     "gatsby-cli": "^2.4.17",
     "gatsby-image": "^2.0.34",
+    "gatsby-paginate": "^1.0.17",
     "gatsby-plugin-catch-links": "^2.0.13",
     "gatsby-plugin-feed": "^2.1.0",
     "gatsby-plugin-manifest": "^2.0.24",
@@ -19,6 +20,7 @@
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-remark-prismjs": "^3.2.6",
     "gatsby-source-filesystem": "^2.0.27",
+    "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.17",
     "prismjs": "^1.15.0",
     "prop-types": "^15.7.2",
@@ -26,6 +28,7 @@
     "react-dom": "^16.8.4",
     "react-feather": "^1.1.6",
     "react-helmet": "^5.2.0",
+    "react-moment": "^0.8.4",
     "react-obfuscate": "^3.2.1",
     "styled-components": "^4.1.3"
   },
