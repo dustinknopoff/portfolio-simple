@@ -7,6 +7,8 @@
 // You can delete this file if you're not using it
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { paginate } = require("gatsby-awesome-pagination")
+const _ = require("lodash")
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -51,6 +53,13 @@ exports.createPages = ({ graphql, actions }) => {
             slug: node.fields.slug,
           },
         })
+      })
+      paginate({
+        createPage,
+        items: result.data.allMarkdownRemark.edges,
+        itemsPerPage: 10,
+        pathPrefix: `/posts`,
+        component: path.resolve(`./src/templates/postsList.js`),
       })
       resolve()
     })

@@ -1,5 +1,6 @@
 :root {
   --main-txt-color: #007aff;
+  --main-opp-color: #ff8400;
 }
 
 html {
@@ -449,6 +450,7 @@ blockquote {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
+  font-style: italic;
 }
 form {
   margin-left: 0;
@@ -626,4 +628,17 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+article > * > a,
+article > a {
+  color: #61c900;
+  background-color: #efefef;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+article > * > a:hover,
+article > a:hover {
+  color: #c6c900;
 }

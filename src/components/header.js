@@ -14,18 +14,20 @@ const Header = ({ siteTitle, description, pages }) => (
       <p style={{ width: `75%` }}>{description}</p>
     </Title>
     <Info>
-      <img
-        src="https://res.cloudinary.com/dknopoff/image/upload/f_auto/v1523893789/portfolio/profile.jpg"
-        style={{
-          opacity: `100`,
-          transition: `opacity 0.5s ease 0.5s`,
-          width: `100px`,
-          height: `100px`,
-          borderRadius: `50px`,
-          margin: `0 auto`,
-        }}
-        alt="profile"
-      />
+      <Link to="/">
+        <img
+          src="https://res.cloudinary.com/dknopoff/image/upload/f_auto/v1523893789/portfolio/profile.jpg"
+          style={{
+            opacity: `100`,
+            transition: `opacity 0.5s ease 0.5s`,
+            width: `100px`,
+            height: `100px`,
+            borderRadius: `50px`,
+            margin: `0 auto`,
+          }}
+          alt="profile"
+        />
+      </Link>
       <LinksList>
         {pages.map((x, index) => {
           if (index != pages.length - 1) {

@@ -38,8 +38,12 @@ const Layout = ({ children }) => (
         <Main>{children}</Main>
         <Footer>
           <Mail />
-          <GitHub />
-          <Linkedin />
+          <a href="https://github.com/dustinknopoff">
+            <GitHub />
+          </a>
+          <a href="https://linkedin.com/in/dustinknopoff">
+            <Linkedin />
+          </a>
           <Rss />
         </Footer>
       </Grid>
