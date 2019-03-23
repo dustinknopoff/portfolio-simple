@@ -1,42 +1,105 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import styled, { css } from "styled-components"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+// TODO: Redo all of this as Grid!!!
+
+const Header = ({ siteTitle, description, pages }) => (
+  <Head>
+    <Title>
+      <h1>
         <Link
           to="/"
           style={{
-            color: `white`,
+            color: `black`,
             textDecoration: `none`,
           }}
         >
           {siteTitle}
         </Link>
       </h1>
-    </div>
-  </header>
+      <p style={{ width: `75%` }}>{description}</p>
+    </Title>
+    <Info>
+      <img
+        src="https://res.cloudinary.com/dknopoff/image/upload/f_auto/v1523893789/portfolio/profile.jpg"
+        style={{
+          opacity: `100`,
+          transition: `opacity 0.5s ease 0.5s`,
+          width: `100px`,
+          height: `100px`,
+          borderRadius: `50px`,
+          margin: `0 auto`,
+        }}
+        alt="profile"
+      />
+      <LinksList>
+        {pages.map((x, index) => {
+          if (index != pages.length - 1) {
+            return <ListElem key={index}>{x}</ListElem>
+          } else {
+            return (
+              <ListElem end key={index}>
+                {x}
+              </ListElem>
+            )
+          }
+        })}
+      </LinksList>
+    </Info>
+    <Title />
+  </Head>
 )
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  description: PropTypes.string,
+  pages: PropTypes.arrayOf(PropTypes.string),
 }
 
 Header.defaultProps = {
   siteTitle: ``,
+  description: ``,
+  pages: [``],
 }
 
 export default Header
+
+export const Head = styled.header`
+  grid-column: 2 / span 12;
+  grid-row: 1;
+  display: flex;
+  margin-top: 4vh;
+`
+
+export const Title = styled.div`
+  width: 33%;
+`
+
+export const Info = styled.div`
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > * {
+    margin: 10px;
+  }
+`
+
+export const LinksList = styled.ul`
+  list-style-type: none;
+  display: flex;
+`
+
+export const ListElem = styled.li`
+  border-right: 1px solid black;
+  padding: 0 5px 0 5px;
+
+  ${props =>
+    props.end &&
+    css`
+      border: none;
+    `};
+`
