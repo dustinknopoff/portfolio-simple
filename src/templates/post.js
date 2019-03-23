@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import Moment from "react-moment"
 
 const Post = ({ data }) => {
-  console.log(data)
   let { title, link, tag, date } = data.markdownRemark.frontmatter
   let { html } = data.markdownRemark
   return (
