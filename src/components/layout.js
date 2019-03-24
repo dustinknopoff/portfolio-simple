@@ -17,69 +17,69 @@ import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            description
-            pages
-          }
-        }
-        siteSearchIndex {
-          index
-        }
-      }
-    `}
-    render={data => (
-      <Grid>
-        <Header
-          siteTitle={data.site.siteMetadata.title}
-          description={data.site.siteMetadata.description}
-          pages={data.site.siteMetadata.pages}
-          searchIndex={data.siteSearchIndex.index}
-        />
-        <Main>{children}</Main>
-        <Footer>
-          <Mail />
-          <a href="https://github.com/dustinknopoff">
-            <GitHub />
-          </a>
-          <a href="https://linkedin.com/in/dustinknopoff">
-            <Linkedin />
-          </a>
-          <Rss />
-        </Footer>
-      </Grid>
-    )}
-  />
+    <StaticQuery
+        query={graphql`
+            query SiteTitleQuery {
+                site {
+                    siteMetadata {
+                        title
+                        description
+                        pages
+                    }
+                }
+                siteSearchIndex {
+                    index
+                }
+            }
+        `}
+        render={data => (
+            <Grid>
+                <Header
+                    siteTitle={data.site.siteMetadata.title}
+                    description={data.site.siteMetadata.description}
+                    pages={data.site.siteMetadata.pages}
+                    searchIndex={data.siteSearchIndex.index}
+                />
+                <Main>{children}</Main>
+                <Footer>
+                    <Mail />
+                    <a href="https://github.com/dustinknopoff">
+                        <GitHub />
+                    </a>
+                    <a href="https://linkedin.com/in/dustinknopoff">
+                        <Linkedin />
+                    </a>
+                    <Rss />
+                </Footer>
+            </Grid>
+        )}
+    />
 )
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 export default Layout
 
 export const Grid = styled.div`
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: 3fr repeat(12, 1fr) 3fr;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 3fr repeat(12, 1fr) 3fr;
 `
 
 export const Main = styled.main`
-  grid-row: 2;
-  grid-column: 2 / span 12;
+    grid-row: 2;
+    grid-column: 2 / span 12;
 `
 
 export const Footer = styled.footer`
-  grid-column: 7 / span 2;
-  grid-row: 3;
-  display: flex;
-  justify-content: center;
+    grid-column: 7 / span 2;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
 
-  > * {
-    margin: 0 5px 0 5px;
-  }
+    > * {
+        margin: 0 5px 0 5px;
+    }
 `
