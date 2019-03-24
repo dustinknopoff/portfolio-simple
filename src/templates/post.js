@@ -5,8 +5,9 @@ import Moment from "react-moment"
 import styled from "styled-components"
 
 const Post = ({ data }) => {
-  let { title, link, tag, date } = data.markdownRemark.frontmatter
+  let { title, link, tag } = data.markdownRemark.frontmatter
   let { html } = data.markdownRemark
+  let { date } = data.markdownRemark.fields
   return (
     <Layout>
       <div style={{ marginBottom: `1rem` }}>
@@ -31,8 +32,10 @@ export const query = graphql`
       frontmatter {
         title
         link
-        date
         tag
+      }
+      fields {
+        modifiedTime
       }
     }
   }
