@@ -112,6 +112,10 @@ export const ListElem = styled.li`
     font-style: normal;
   }
 
+  @media (prefers-color-scheme: dark) {
+    border-right: 1px solid gray;
+  }
+
   ${props =>
     props.end &&
     css`

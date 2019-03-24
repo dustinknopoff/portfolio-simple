@@ -653,5 +653,6 @@ article > a:hover {
   }
   input {
     background-color: #444444;
+    color: lightgray;
   }
 }
