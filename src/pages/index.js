@@ -17,8 +17,10 @@ const IndexPage = () => (
                         node {
                             frontmatter {
                                 title
+                                date
                             }
                             excerpt
+                            timeToRead
                             fields {
                                 slug
                                 birthTime(fromNow: true)
@@ -36,13 +38,7 @@ const IndexPage = () => (
                 />
                 <h2>Recent Posts</h2>
                 {data.allMarkdownRemark.edges.map(({ node }) => {
-                    return (
-                        <PostExcerpt
-                            node={node}
-                            isExcerpt={true}
-                            key={node.fields.slug}
-                        />
-                    )
+                    return <PostExcerpt node={node} key={node.fields.slug} />
                 })}
             </Layout>
         )}

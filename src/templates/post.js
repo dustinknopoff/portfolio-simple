@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import Moment from "react-moment"
+import SEO from "../components/seo"
 
 const Post = ({ data }) => {
     let { title, link, tag, linkText, date } = data.markdownRemark.frontmatter
@@ -12,13 +13,14 @@ const Post = ({ data }) => {
     let tagBlacklist = ["about", "use"]
     return (
         <Layout>
+            <SEO title={title} keywords={[{ tag }]} />
             <BG>
                 <div style={{ marginBottom: `1rem` }}>
                     <TitleTag>
                         <h3>{title}</h3>
                         <Tag>{tag}</Tag>
                     </TitleTag>
-                    <Moment fromNow>{date}</Moment>
+                    <span>{birthTime}</span>
                 </div>
                 <article dangerouslySetInnerHTML={{ __html: html }} />
                 {!tagBlacklist.includes(tag) && (
