@@ -1,6 +1,7 @@
 :root {
     --main-txt-color: #007aff;
     --main-opp-color: #ff8400;
+    --main-txt-color-dark: #5aa8fc;
 }
 
 html {
@@ -13,6 +14,12 @@ body {
     color: var(--main-txt-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+html {
+    background: url("https://res.cloudinary.com/dknopoff/image/upload/f_auto/v1553460730/portfolio/pipes.png")
+        repeat center center fixed;
+    width: 100%;
+    height: 100%;
 }
 article,
 aside,
@@ -651,10 +658,11 @@ article > a:hover {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #1c1c1c;
+        color: var(--main-txt-color-dark);
     }
-    :root {
-        --main-txt-color: #5aa8fc;
+    html {
+        background: url("https://res.cloudinary.com/dknopoff/image/upload/f_auto/v1553460730/portfolio/prism.png")
+            repeat center center fixed;
     }
     input {
         background-color: #444444;

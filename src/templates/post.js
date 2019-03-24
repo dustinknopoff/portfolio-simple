@@ -12,17 +12,19 @@ const Post = ({ data }) => {
     let tagBlacklist = ["about", "use"]
     return (
         <Layout>
-            <div style={{ marginBottom: `1rem` }}>
-                <TitleTag>
-                    <h3>{title}</h3>
-                    <Tag>{tag}</Tag>
-                </TitleTag>
-                <Moment fromNow>{date}</Moment>
-            </div>
-            <article dangerouslySetInnerHTML={{ __html: html }} />
-            {!tagBlacklist.includes(tag) && (
-                <a href={link}>{linkText || "Check it out!"}</a>
-            )}
+            <BG>
+                <div style={{ marginBottom: `1rem` }}>
+                    <TitleTag>
+                        <h3>{title}</h3>
+                        <Tag>{tag}</Tag>
+                    </TitleTag>
+                    <Moment fromNow>{date}</Moment>
+                </div>
+                <article dangerouslySetInnerHTML={{ __html: html }} />
+                {!tagBlacklist.includes(tag) && (
+                    <a href={link}>{linkText || "Check it out!"}</a>
+                )}
+            </BG>
         </Layout>
     )
 }
@@ -57,4 +59,14 @@ export const Tag = styled.p`
     border-radius: 4px;
     padding: 3px;
     color: var(--main-opp-color);
+`
+
+export const BG = styled.div`
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #efefef;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #1c1c1c;
+    }
 `
