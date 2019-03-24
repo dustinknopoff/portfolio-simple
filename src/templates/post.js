@@ -1,13 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Moment from "react-moment"
 import styled from "styled-components"
+import Moment from "react-moment"
 
 const Post = ({ data }) => {
-    let { title, link, tag } = data.markdownRemark.frontmatter
+    let { title, link, tag, linkText, date } = data.markdownRemark.frontmatter
     let { html } = data.markdownRemark
-    let { date } = data.markdownRemark.fields
+    let { birthTime } = data.markdownRemark.fields
+    console.log(linkText)
+    let tagBlacklist = ["about", "use"]
     return (
         <Layout>
             <div style={{ marginBottom: `1rem` }}>
@@ -18,7 +20,9 @@ const Post = ({ data }) => {
                 <Moment fromNow>{date}</Moment>
             </div>
             <article dangerouslySetInnerHTML={{ __html: html }} />
-            <a href={link}>Go now!</a>
+            {!tagBlacklist.includes(tag) && (
+                <a href={link}>{linkText || "Check it out!"}</a>
+            )}
         </Layout>
     )
 }
@@ -33,9 +37,11 @@ export const query = graphql`
                 title
                 link
                 tag
+                linkText
+                date
             }
             fields {
-                modifiedTime
+                birthTime(fromNow: true)
             }
         }
     }

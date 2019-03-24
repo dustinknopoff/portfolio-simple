@@ -11,57 +11,63 @@ const { paginate } = require("gatsby-awesome-pagination")
 const _ = require("lodash")
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
-    const fileNode = getNode(node.parent)
-    createNodeField({
-      node,
-      name: "modifiedTime",
-      value: fileNode.mtime,
-    })
-  }
+    const { createNodeField } = actions
+    if (node.internal.type === `MarkdownRemark`) {
+        const slug = createFilePath({ node, getNode, basePath: `pages` })
+        createNodeField({
+            node,
+            name: `slug`,
+            value: slug,
+        })
+        const fileNode = getNode(node.parent)
+        createNodeField({
+            node,
+            name: "modifiedTime",
+            value: fileNode.mtime,
+        })
+        createNodeField({
+            node,
+            name: "birthTime",
+            value: fileNode.birthTime,
+        })
+    }
 }
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
+    const { createPage } = actions
+    return new Promise((resolve, reject) => {
+        graphql(`
+            {
+                allMarkdownRemark {
+                    edges {
+                        node {
+                            fields {
+                                slug
+                            }
+                        }
+                    }
+                }
             }
-          }
-        }
-      }
-    `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/post.js`),
-          context: {
-            // Data passed to context is available in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
+        `).then(result => {
+            let edges = result.data.allMarkdownRemark.edges
+            edges.forEach(({ node }) => {
+                createPage({
+                    path: node.fields.slug,
+                    component: path.resolve(`./src/templates/post.js`),
+                    context: {
+                        // Data passed to context is available in page queries as GraphQL variables.
+                        slug: node.fields.slug,
+                    },
+                })
+            })
+            paginate({
+                createPage,
+                items: edges,
+                itemsPerPage: 10,
+                pathPrefix: `/posts`,
+                component: path.resolve(`./src/templates/postsList.js`),
+            })
+            resolve()
         })
-      })
-      paginate({
-        createPage,
-        items: result.data.allMarkdownRemark.edges,
-        itemsPerPage: 10,
-        pathPrefix: `/posts`,
-        component: path.resolve(`./src/templates/postsList.js`),
-      })
-      resolve()
     })
-  })
 }

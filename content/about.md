@@ -17,6 +17,6 @@ TODO.
 
 ## Taekwondo
 
-I've been practicing Taekwondo for over 15 years. I'm a 3rd dan black belt in WTF style Taekwondo.
+I've been practicing Taekwondo for over 15 years. I'm a 3rd dan black belt in World Taekwondo Federation style Taekwondo.
 
 ![Breaking 3 bricks on fire](https://res.cloudinary.com/dknopoff/image/upload/e_blur_faces:500/v1553394222/portfolio/IMG_0397.jpg)

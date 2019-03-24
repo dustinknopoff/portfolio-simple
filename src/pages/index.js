@@ -10,7 +10,8 @@ const IndexPage = () => (
             query LatestThreeQuery {
                 allMarkdownRemark(
                     limit: 3
-                    sort: { order: DESC, fields: [fields___modifiedTime] }
+                    sort: { order: DESC, fields: [fields___birthTime] }
+                    filter: { frontmatter: { tag: { nin: ["use", "about"] } } }
                 ) {
                     edges {
                         node {
@@ -20,7 +21,7 @@ const IndexPage = () => (
                             excerpt
                             fields {
                                 slug
-                                modifiedTime
+                                birthTime(fromNow: true)
                             }
                         }
                     }

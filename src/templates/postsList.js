@@ -24,18 +24,20 @@ export default PostsList
 export const pageQuery = graphql`
     query($skip: Int!, $limit: Int!) {
         allMarkdownRemark(
-            sort: { fields: [fields___modifiedTime], order: DESC }
+            sort: { fields: [frontmatter___date], order: DESC }
             skip: $skip
             limit: $limit
+            filter: { frontmatter: { tag: { nin: ["about", "use"] } } }
         ) {
             edges {
                 node {
                     fields {
-                        modifiedTime
+                        birthTime(fromNow: true)
                         slug
                     }
                     frontmatter {
                         title
+                        date
                     }
                     excerpt
                 }

@@ -7,7 +7,7 @@ const PostExcerpt = ({ node }) => (
     <Link to={node.fields.slug}>
         <TitleDate>
             <h4 style={{ textAlign: `right` }}>{node.frontmatter.title}</h4>
-            <Moment fromNow>{node.fields.modifiedTime}</Moment>
+            <Moment fromNow>{node.frontmatter.date}</Moment>
         </TitleDate>
         <p style={{ marginLeft: `25%` }}>{node.excerpt}</p>
     </Link>
