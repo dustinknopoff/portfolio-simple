@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+// eslint-disable-next-line
 import Obfuscate from "react-obfuscate"
 import { Mail, GitHub, Linkedin, Rss } from "react-feather"
 import styled from "styled-components"
@@ -26,6 +27,9 @@ const Layout = ({ children }) => (
             pages
           }
         }
+        siteSearchIndex {
+          index
+        }
       }
     `}
     render={data => (
@@ -34,6 +38,7 @@ const Layout = ({ children }) => (
           siteTitle={data.site.siteMetadata.title}
           description={data.site.siteMetadata.description}
           pages={data.site.siteMetadata.pages}
+          searchIndex={data.siteSearchIndex.index}
         />
         <Main>{children}</Main>
         <Footer>

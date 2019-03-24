@@ -351,6 +351,7 @@ ul {
   margin-bottom: 1.45rem;
   list-style-position: outside;
   list-style-image: none;
+  list-style-type: none;
 }
 ol {
   margin-left: 1.45rem;
@@ -641,4 +642,16 @@ article > a {
 article > * > a:hover,
 article > a:hover {
   color: #c6c900;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1c1c1c;
+  }
+  :root {
+    --main-txt-color: #5aa8fc;
+  }
+  input {
+    background-color: #444444;
+  }
 }
