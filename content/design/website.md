@@ -1,7 +1,7 @@
 ---
 tag: design
 title: Website
-link: https://github.com/dustinknopoff/gatsby-portfolio
+link: https://github.com/dustinknopoff/portfolio-simple
 date: 2018-07-28
 ---
 
