@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 // eslint-disable-next-line
 import Obfuscate from "react-obfuscate"
 import { Mail, GitHub, Linkedin, Rss } from "react-feather"
@@ -49,7 +49,9 @@ const Layout = ({ children }) => (
                     <a href="https://linkedin.com/in/dustinknopoff">
                         <Linkedin />
                     </a>
-                    <Rss />
+                    <Link to="/rss.xml">
+                        <Rss />
+                    </Link>
                 </Footer>
             </Grid>
         )}

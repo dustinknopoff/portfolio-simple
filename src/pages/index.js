@@ -10,7 +10,7 @@ const IndexPage = () => (
             query LatestThreeQuery {
                 allMarkdownRemark(
                     limit: 3
-                    sort: { order: DESC, fields: [fields___birthTime] }
+                    sort: { fields: [frontmatter___date], order: DESC }
                     filter: { frontmatter: { tag: { nin: ["use", "about"] } } }
                 ) {
                     edges {
