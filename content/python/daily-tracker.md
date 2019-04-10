@@ -2,7 +2,7 @@
 tag: python
 title: Daily Tracker
 link: https://gist.github.com/dustinknopoff/e63363836aedf54ffc50c71c0b57c73e
-date: 2019-1-01
+date: 2019-01-01
 ---
 
 There are so many areas in the world where we are inefficient. It's something that increasingly bugs me with the growth of my knowledge and understanding. Specifically that there are so many places where I realize I could write something that would stop the repetition of a tedious task. This is what makes programming so powerful. But, there is another side, one which I had the opportunity to realize recently.
