@@ -49,7 +49,7 @@ const Layout = ({ children }) => (
                     <a href="https://linkedin.com/in/dustinknopoff">
                         <Linkedin />
                     </a>
-                    <Link to="/rss.xml">
+                    <Link to="rss.xml" name="rss-feed">
                         <Rss />
                     </Link>
                 </Footer>
