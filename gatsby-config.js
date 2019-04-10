@@ -4,7 +4,7 @@ module.exports = {
         description: `Computer Science and Design student at Northeastern University`,
         author: `@dustinknopoff`,
         pages: [`About`, `Posts`, `Uses`],
-        siteUrl: `https://dustinknopoff-simple.netlify.com`,
+        siteUrl: `https://dustinknopoff.dev`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
