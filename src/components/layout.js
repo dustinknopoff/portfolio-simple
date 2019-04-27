@@ -8,8 +8,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql, Link } from "gatsby"
-// eslint-disable-next-line
-import Obfuscate from "react-obfuscate"
 import { Mail, GitHub, Linkedin, Rss } from "react-feather"
 import styled from "styled-components"
 
@@ -42,7 +40,6 @@ const Layout = ({ children }) => (
                 />
                 <Main>{children}</Main>
                 <Footer>
-                    <Mail />
                     <a href="https://github.com/dustinknopoff">
                         <GitHub />
                     </a>
