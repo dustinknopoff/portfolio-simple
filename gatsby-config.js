@@ -3,7 +3,7 @@ module.exports = {
         title: `Dustin Knopoff`,
         description: `Computer Science and Design student at Northeastern University`,
         author: `@dustinknopoff`,
-        pages: [`About`, `Posts`, `Uses`],
+        pages: [`About`, `Posts`, `Uses`, `Links`],
         siteUrl: `https://dustinknopoff.dev`,
     },
     plugins: [

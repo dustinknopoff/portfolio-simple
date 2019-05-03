@@ -32,7 +32,6 @@
     "react-feather": "^1.1.6",
     "react-helmet": "^5.2.0",
     "react-moment": "^0.8.4",
-    "react-obfuscate": "^3.2.1",
     "styled-components": "^4.1.3"
   },
   "devDependencies": {

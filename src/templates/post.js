@@ -10,7 +10,7 @@ const Post = ({ data }) => {
     let { html } = data.markdownRemark
     let { birthTime } = data.markdownRemark.fields
     console.log(linkText)
-    let tagBlacklist = ["about", "use"]
+    let tagBlacklist = ["about", "use", `links`]
     return (
         <Layout>
             <SEO title={title} keywords={[{ tag }]} />
