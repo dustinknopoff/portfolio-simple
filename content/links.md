@@ -25,3 +25,4 @@ date: 2019-05-03
 - [Parser Combinators in Rust](https://bodil.lol/parser-combinators/) <span class="tag">rust</span>
 - [Smashing the Stack in to the 21st Century](https://thesquareplanet.com/blog/smashing-the-stack-21st-century/) <span class="tag">programming</span>
 - [Unlearning OOP](https://dpc.pw/the-faster-you-unlearn-oop-the-better-for-you-and-your-software) <span class="tag">programming</span>
+- [I/O Faster Than CPU?](https://penberg.org/parakernel-hotos19.pdf) <span class="tag">OS</span>
