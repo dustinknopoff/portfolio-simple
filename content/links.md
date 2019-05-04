@@ -16,8 +16,27 @@ date: 2019-05-03
 - [Live Coding Linked HashMap](https://www.youtube.com/watch?v=k6xR2kf9hlA) <span class="tag">rust</span>
 - [Debugging Docker in Production: Bryan Cantrill](https://www.youtube.com/watch?v=AdMqCUhvRz8&t=1s)<span class="tag">cloud</span>
 - [Representing Types in Rust Compiler](https://www.youtube.com/watch?v=c01TsOsr3-c)<span class="tag">rust</span>
-- [Debugging Under Fire](https://www.youtube.com/watch?v=30jNsCVLpAE)<span class="tag">cloud</span>
-- [Summer of Rust](https://www.youtube.com/watch?v=LjFM8vw3pbU&t=1s)<span class="tag">rust</span>
+- [Debugging Under Fire: Bryan Cantrill](https://www.youtube.com/watch?v=30jNsCVLpAE)<span class="tag">cloud</span>
+- [Summer of Rust: Bryan Cantrill](https://www.youtube.com/watch?v=LjFM8vw3pbU&t=1s)<span class="tag">rust</span>
+
+## Podcasts
+- [Accidental Tech Podcast](https://atp.fm) <span class="tag">apple</span>
+- [Automators](https://www.relay.fm/automators) <span class="tag">automation</span>
+- [Mac Power Users](https://www.relay.fm/mpu) <span class="tag">apple</span>
+- [Bon Appetit Foodcast](https://www.bonappetit.com/story/bon-appetit-foodcast) <span class="tag">food</span>
+- [Changelog (All)](https://changelog.com) <span class="tag">programming</span>
+- [Connected](https://www.relay.fm/connected) <span class="tag">apple</span>
+- [Dan Carlin's Hardcore History](https://www.dancarlin.com) <span class="tag">history</span>
+- [Exponent](https://www.exponent.fm) <span class="tag">economics</span>
+- [Found my Fitness](https://www.foundmyfitness.com) <span class="tag">diet</span>
+- [New Rustacean](https://www.newrustacean.com) <span class="tag">rust</span>
+- [Stacktrace](https://stacktracepodcast.fm) <span class="tag">apple</span>
+- [Swift Community Podcast](https://www.swiftcommunitypodcast.org) <span class="tag">swift</span>
+- [Syntax](https://www.syntax.fm) <span class="tag">web</span>
+- [The Talk Show with John Gruber](https://daringfireball.net) <span class="tag">apple</span>
+- [Under the Radar](https://www.relay.fm/radar) <span class="tag">development</span>
+- [Upgrade](https://www.relay.fm/upgrade) <span class="tag">apple</span>
+- [Reply All](https://gimletmedia.com/shows/reply-all) <span class="tag">technology</span>
 
 ## Other
 
