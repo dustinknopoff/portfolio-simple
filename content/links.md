@@ -1,6 +1,6 @@
 ---
 tag: links
-title: Links
+title: Interesting Links
 date: 2019-05-03
 ---
 
@@ -26,3 +26,4 @@ date: 2019-05-03
 - [Smashing the Stack in to the 21st Century](https://thesquareplanet.com/blog/smashing-the-stack-21st-century/) <span class="tag">programming</span>
 - [Unlearning OOP](https://dpc.pw/the-faster-you-unlearn-oop-the-better-for-you-and-your-software) <span class="tag">programming</span>
 - [I/O Faster Than CPU?](https://penberg.org/parakernel-hotos19.pdf) <span class="tag">OS</span>
+- [FST Library in Rust](https://blog.burntsushi.net/transducers/#fst-construction) <span class="tag">rust</span>
