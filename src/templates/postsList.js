@@ -27,7 +27,7 @@ export const pageQuery = graphql`
             sort: { fields: [frontmatter___date], order: DESC }
             skip: $skip
             limit: $limit
-            filter: { frontmatter: { tag: { nin: ["about", "use"] } } }
+            filter: { frontmatter: { tag: { nin: ["about", "use", "links"] } } }
         ) {
             edges {
                 node {

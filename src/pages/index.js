@@ -11,7 +11,9 @@ const IndexPage = () => (
                 allMarkdownRemark(
                     limit: 3
                     sort: { fields: [frontmatter___date], order: DESC }
-                    filter: { frontmatter: { tag: { nin: ["use", "about"] } } }
+                    filter: {
+                        frontmatter: { tag: { nin: ["use", "about", "links"] } }
+                    }
                 ) {
                     edges {
                         node {
