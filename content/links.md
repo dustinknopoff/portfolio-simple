@@ -19,6 +19,8 @@ date: 2019-05-03
 - [Debugging Under Fire: Bryan Cantrill](https://www.youtube.com/watch?v=30jNsCVLpAE) <span class="tag">cloud</span>
 - [Summer of Rust: Bryan Cantrill](https://www.youtube.com/watch?v=LjFM8vw3pbU&t=1s) <span class="tag">rust</span>
 - [React Hooks: Boston Meetup April 2019](https://www.youtube.com/watch?v=1jWS7cCuUXw) <span class="tag">web</span>
+- [Cartoon Intro to WebAssembly](https://www.youtube.com/watch?v=HktWin_LPf4) <span class="tag">web</span>
+- [WebAssembly for React](https://www.youtube.com/watch?v=3GHJ4cbxsVQ&t=1020s) <span class="tag">web</span>
 
 ## Podcasts
 - [Accidental Tech Podcast](https://atp.fm) <span class="tag">apple</span>
@@ -38,8 +40,6 @@ date: 2019-05-03
 - [Under the Radar](https://www.relay.fm/radar) <span class="tag">development</span>
 - [Upgrade](https://www.relay.fm/upgrade) <span class="tag">apple</span>
 - [Reply All](https://gimletmedia.com/shows/reply-all) <span class="tag">technology</span>
-- [Cartoon Intro to WebAssembly](https://www.youtube.com/watch?v=HktWin_LPf4) <span class="tag">web</span>
-- [WebAssembly for React](https://www.youtube.com/watch?v=3GHJ4cbxsVQ&t=1020s) <span class="tag">web</span>
 
 ## Other
 
