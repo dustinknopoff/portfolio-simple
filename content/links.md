@@ -21,6 +21,7 @@ date: 2019-05-03
 - [React Hooks: Boston Meetup April 2019](https://www.youtube.com/watch?v=1jWS7cCuUXw) <span class="tag">web</span>
 - [Cartoon Intro to WebAssembly](https://www.youtube.com/watch?v=HktWin_LPf4) <span class="tag">web</span>
 - [WebAssembly for React](https://www.youtube.com/watch?v=3GHJ4cbxsVQ&t=1020s) <span class="tag">web</span>
+- [Jon Gjenset (All)](https://www.youtube.com/channel/UC_iD0xppBwwsrM9DegC5cQQ) <span class="tag">rust</span>
 
 ## Podcasts
 - [Accidental Tech Podcast](https://atp.fm) <span class="tag">apple</span>
