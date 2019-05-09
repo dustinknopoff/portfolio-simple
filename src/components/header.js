@@ -117,6 +117,12 @@ export const ListElem = styled.li`
     padding: 0 5px 0 5px;
     font-style: italic;
 
+    ${props =>
+        props.end &&
+        css`
+            border: none;
+        `};
+
     :hover {
         font-style: normal;
     }
@@ -124,10 +130,4 @@ export const ListElem = styled.li`
     @media (prefers-color-scheme: dark) {
         border-right: 1px solid gray;
     }
-
-    ${props =>
-        props.end &&
-        css`
-            border: none;
-        `};
 `
