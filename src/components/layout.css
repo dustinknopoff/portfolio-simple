@@ -2,6 +2,7 @@
     --main-txt-color: #007aff;
     --main-opp-color: #ff8400;
     --main-txt-color-dark: #5aa8fc;
+    color-scheme: light dark;
 }
 
 html {
