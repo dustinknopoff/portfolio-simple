@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql, Link } from "gatsby"
 import { Mail, GitHub, Linkedin, Rss } from "react-feather"
 import styled from "styled-components"
+import Obfuscate from "react-obfuscate"
 
 import Header from "./header"
 import "./layout.css"
@@ -40,6 +41,9 @@ const Layout = ({ children }) => (
                 />
                 <Main>{children}</Main>
                 <Footer>
+                    <Obfuscate email="dustinknopoff.dev" name="email">
+                        <Mail />
+                    </Obfuscate>
                     <a href="https://github.com/dustinknopoff">
                         <GitHub />
                     </a>
