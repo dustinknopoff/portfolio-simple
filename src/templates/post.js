@@ -66,9 +66,4 @@ export const Tag = styled.p`
 export const BG = styled.div`
     border-radius: 5px;
     padding: 20px;
-    background-color: #efefef;
-
-    @media (prefers-color-scheme: dark) {
-        background-color: #1c1c1c;
-    }
 `

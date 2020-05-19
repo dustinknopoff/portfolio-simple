@@ -17,8 +17,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 html {
-    background: url("https://res.cloudinary.com/dknopoff/image/upload/f_auto/v1553460730/portfolio/pipes.png")
-        repeat center center fixed;
     width: 100%;
     height: 100%;
 }
@@ -670,10 +668,6 @@ article > a:hover {
 @media (prefers-color-scheme: dark) {
     body {
         color: var(--main-txt-color-dark);
-    }
-    html {
-        background: url("https://res.cloudinary.com/dknopoff/image/upload/f_auto/v1553460730/portfolio/prism.png")
-            repeat center center fixed;
     }
     input {
         background-color: #444444;

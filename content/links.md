@@ -41,6 +41,7 @@ date: 2019-05-03
 - [Under the Radar](https://www.relay.fm/radar) <span class="tag">development</span>
 - [Upgrade](https://www.relay.fm/upgrade) <span class="tag">apple</span>
 - [Reply All](https://gimletmedia.com/shows/reply-all) <span class="tag">technology</span>
+- [Leading GitHub to a $7.5 billion acquisition with Jason Warner, CTO at GitHub](https://changelog.com/podcast/395) <span class="tag">development</span>
 
 ## Articles
 
