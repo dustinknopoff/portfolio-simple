@@ -60,7 +60,7 @@ ID = @{ (ASCII_ALPHA_UPPER | " "){4}}
 COURSE_NUMBER = @{ ASCII_DIGIT{4}}
 COURSE = {ID? ~ COURSE_NUMBER }
 SKIP_PARENS = _{ "(" ~ ANY{11} ~ ")" }
-TO = { "TO" } 
+TO = { "TO" }
 COURSE_LIST_PARSER = { COURSE_LIST ~ (COURSE ~ (SKIP_PARENS | TO)?)* }
 
 // Courses
@@ -86,14 +86,14 @@ INFO = { EARNED_HOURS ~ COURSES_TAKEN ~ ATTEMPTED_HOURS ~ POINTS ~ GPA }
 COURSE_OPTION = { NUPATH_PARSER | COURSE_LIST_PARSER | COURSE_PARSER | INFO }
 SKIP_TO_OPTIONS = _{ (!COURSE_OPTION ~ ANY)* }
 
-main = { GRAD_PARSER ~ CATALOG_PARSER ~ MAJOR ~ (SKIP_TO_OPTIONS ~ COURSE_OPTION)*} 
+main = { GRAD_PARSER ~ CATALOG_PARSER ~ MAJOR ~ (SKIP_TO_OPTIONS ~ COURSE_OPTION)*}
 ```
 
 Kinda nice right?
 
 ## How We Get There
 
-If only that file was created via immaculate conception. Instead it was a lot of trial and error and looking at the [GraduateNU](https://github.com/sandboxnu/graduatenu) codebase. 
+If only that file was created via immaculate conception. Instead it was a lot of trial and error and looking at the [GraduateNU](https://github.com/sandboxnu/graduatenu) codebase.
 
 In fact that was the first thing I did. There's a file [types.ts](https://github.com/sandboxnu/graduatenu/blob/master/frontend/src/models/types.ts) containing all of the typescript types used in their codebase. I copied it in to a constants.rs file and just converted them in to rust equivalents (`class` => `struct`, `number` => `isize`, `string[]` => `Vec<String>`, etc.).
 
@@ -108,7 +108,7 @@ Continuing to look through the GraduateNU codebase, there's a file [html_parser.
 > to an easy to work with JSON file tracking major, graduation date,
 > classes and NUPaths taken and in progress as well as requirements to take.
 
-Jackpot! 
+Jackpot!
 
 The relevant, high level part here is:
 
@@ -129,45 +129,45 @@ The relevant, high level part here is:
       }
     }
   }
-  ```
-  
-  Which leverages line counting, regex, and more. But I want the beautiful clean, pest file! So how does one go from being able to access arbitrary lines to a pest grammar, which amongst other things, never backtracks?
-  
-  ## Converting to Pest
-  
-  As a rule, start from the beginning. Looking at the sample audit and the code block above, the first significant piece of data is the `GRADUATION DATE`. 
-  
-  First we'll define what whitespace means:
-  
-  ```
-  WHITESPACE = _{ " " | NEWLINE | "\t" }
-  ```
-  
-  Pest 'rules' are always provided inside `{}`. The `_` in front tells Pest to ignore anything that matches the pattern that follows. The `|` represents 'OR'. 
-  
-  This can be read as:
-  
-  > WHITESPACE is a silent rule matching " " or newlines or "\t"
-  
-  Next, you'll notice that the graduation date is in the format 08/20/22, let's create a rule for that as well.
-  
-  ```
-  DATE = { ASCII_DIGIT{2} ~ "/" ~ ASCII_DIGIT{2} ~ "/" ~ ASCII_DIGIT{2} }
-  ```
-  
-  This introduces us to some more pest syntax. `ASCII_DIGIT` is a constant representing [0-9]. `{2}` following the ASCII_DIGIT says to match twice. The `~` symbol tells pest to match the following token next. 
-  
-   This can be read as:
-  
-  > DATE is a rule matching 2 digits, then a "/", then 2 digits, then a "/", then 2 digits
+```
 
-Soon, we're going to be composing these rules. An important part of pest rules is that everything with the `{}` "counts". So, when we want to get just the date from this block: `GRADUATION DATE: 08/20/22` we need couldn't have a rule:
+Which leverages line counting, regex, and more. But I want the beautiful clean, pest file! So how does one go from being able to access arbitrary lines to a pest grammar, which amongst other things, never backtracks?
+
+## Converting to Pest
+
+As a rule, start from the beginning. Looking at the sample audit and the code block above, the first significant piece of data is the `GRADUATION DATE`.
+
+First we'll define what whitespace means:
+
+```
+WHITESPACE = _{ " " | NEWLINE | "\t" }
+```
+
+Pest 'rules' are always provided inside `{}`. The `_` in front tells Pest to ignore anything that matches the pattern that follows. The `|` represents 'OR'.
+
+This can be read as:
+
+> WHITESPACE is a silent rule matching " " or newlines or "\t"
+
+Next, you'll notice that the graduation date is in the format 08/20/22, let's create a rule for that as well.
+
+```
+DATE = { ASCII_DIGIT{2} ~ "/" ~ ASCII_DIGIT{2} ~ "/" ~ ASCII_DIGIT{2} }
+```
+
+This introduces us to some more pest syntax. `ASCII_DIGIT` is a constant representing [0-9]. `{2}` following the ASCII_DIGIT says to match twice. The `~` symbol tells pest to match the following token next.
+
+This can be read as:
+
+> DATE is a rule matching 2 digits, then a "/", then 2 digits, then a "/", then 2 digits
+
+Soon, we're going to be composing these rules. An important part of pest rules is that everything with the `{}` "counts". So, when we want to get just the date from this block: `GRADUATION DATE: 08/20/22` we couldn't have a rule:
 
 ```
 GRADUATION_DATE = { "GRADUATION_DATE" ~ DATE }
 ```
 
-As pest would see the string "GRADUATION_DATE" as a something work tracking.
+As pest would see the string "GRADUATION_DATE" as a something worth tracking.
 
 For this reason, we'll write it like this
 
@@ -176,11 +176,11 @@ GRAD_STRING = _{"GRADUATION DATE:"}
 GRADUATION_DATE = { GRAD_STRING ~ DATE }
 ```
 
- This can be read as:
-  
-  > GRAD_STRING is a rule silently matching "GRADUATION DATE:"
-  > 
-  > GRADUATION_DATE is a rule matching the rule `GRAD_STRING` and then matching the rule `DATE`
+This can be read as:
+
+> GRAD_STRING is a rule silently matching "GRADUATION DATE:"
+>
+> GRADUATION_DATE is a rule matching the rule `GRAD_STRING` and then matching the rule `DATE`
 
 But wait! There's a whole bunch (24 lines) of text that comes before the tiny bit to care about. How do we get rid of that?
 
